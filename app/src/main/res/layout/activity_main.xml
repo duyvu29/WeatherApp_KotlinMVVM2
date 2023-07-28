@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main"
+    android:id="@+id/swipeLayout"
+    tools:context=".view.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="16dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Không thành công, xin thử lại"
+            android:padding="15dp"
+            android:background="#4DFFFFFF"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:endIconMode="clear_text">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtCityName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:hint="Tên thành phố"
+                        android:lines="1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/imgSearchCity"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_baseline_search_24" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutData"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvClouds"
+                    android:hint="Clous"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/tvDegree"
+                    android:hint="27"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center"
+                    android:textSize="65sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#4DFFFFFF"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvCityCode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Nước"
+                            android:textSize="23sp" />
+
+                        <TextView
+                            android:id="@+id/tvCityName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Thành phố"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/imWeatherPictures"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_baseline_cloud_queue_24" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="20dp"
+                        android:orientation="vertical">
+
+                        <!--Nem-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            android:layout_height="wrap_content"
+                            android:text="Độ ẩm" />
+
+                        <!--Rüzgar Hızı-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:textSize="30dp"
+                            android:text="Tốc độ gió" />
+
+                        <!--Enlem-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            android:layout_height="wrap_content"
+                            android:text="Vĩ độ" />
+
+                        <!--Boylam-->
+                        <TextView
+                            android:textColor="@color/white"
+                            android:textSize="30dp"
+                            android:layout_width="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_height="wrap_content"
+                            android:text="Kinh độ" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvHumidity"
+                            android:textColor="@color/white"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=":bilgi1" />
+
+                        <TextView
+                            android:id="@+id/tvWindSpeed"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            android:layout_height="wrap_content"
+                            android:text=":bilgi2" />
+
+                        <TextView
+                            android:id="@+id/tvLat"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            android:layout_height="wrap_content"
+                            android:text=":bilgi3" />
+
+                        <TextView
+                            android:id="@+id/tvLon"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="30dp"
+                            android:textStyle="bold"
+                            android:layout_height="wrap_content"
+                            android:text=":bilgi4" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
